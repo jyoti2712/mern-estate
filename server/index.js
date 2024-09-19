@@ -20,7 +20,7 @@ app.listen(PORT, () => {
 
 app.use('/server/auth', authRouter)
 
-app.use((err, req, res,next) => {
+app.use((err, req, res, next) => {
   const statuscode = err.statuscode || 500;
   const message = err.message || 'Internal server error';
   return res.status(statuscode).json({
