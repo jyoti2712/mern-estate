@@ -36,7 +36,8 @@ export default function SignIn() {
       dispatch(signInSuccess(data));
       navigate('/');
     } catch (err) {
-      dispatch(signInFailure(error.message));
+      // Updated to ensure error handling does not use `error.message` directly
+      dispatch(signInFailure(err.message || "Something went wrong"));
     }
   };
   return (
